@@ -56,9 +56,24 @@ include './includes/title.php';
     </head>
     <body>
     <?php  
-    $image = "{users[0]['mynd']}";
-        echo "<img src='" . $image . "'>";
+    foreach ($users as $key) {
+        echo  "<img src='" . $key['mynd'] . "' width='200px' height='200px'>" 
+        . $key['myndheiti'] . "<br>";
+    }
+    
+      
 ?>
+
+<form action="addicsv.php" method="post">
+        <label>Myndheiti: </label>
+        <input type="text" name="player" id="myndheiti" required ><br>
+        
+        <label>Myndslóð: </label>
+        <input type="text" name="score" id="myndslod" required ><br>
+
+        <input type="submit">
+    </form>
+<br>
 <a href="index.php">Til baka á aðalsíðuna</a>
 
     </body>
